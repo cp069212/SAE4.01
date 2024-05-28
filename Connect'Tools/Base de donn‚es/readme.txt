@@ -1,0 +1,1 @@
+Pour pouvoir importer les tables, il faut au préalable créer une base de données (le script ne se charge pas de la création de la base).
