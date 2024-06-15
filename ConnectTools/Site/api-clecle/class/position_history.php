@@ -5,7 +5,9 @@ class PositionHistory{
 
     public $id;
     public $object_id;
-    public $position;
+    public $x;
+    public $y;
+    public $plan;
     public $timestamp;
 
     public function __construct($db){
