@@ -6,9 +6,6 @@
     <link rel="icon" type="image/png" href="assets/images/outils.png">
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <script src="https://unpkg.com/konva@8/konva.min.js"></script>
-    <script src="assets/scripts/functionsApi.js" type="application/javascript"></script>
-    <script src="assets/scripts/stats.js" type="application/javascript" defer></script>
 </head>
 
 <body>
@@ -25,6 +22,7 @@
                     <li><a href="abonnement.html">Abonnement</a></li>
                     <li><a href="statistiques.html">Statistiques</a></li>
                     <li><a href="SAV.html">SAV</a></li>
+                    <li><a href="position_history.html">Historique</a></li>
                     <li><a id="deconnexion" href="connexion.html">Déconnexion</a></li>
                 </ul>
             </div>
@@ -32,42 +30,49 @@
     </nav>
 </header>
 
-<div id="statistiques">
-    <h2>Statistiques d'utilisation</h2>
-    <br>
-    <div id="select_ordre">
-        <label for="ordre">Trier par ordre: </label>
+<div class="abonnements">
+    <h2>Abonnements</h2>
+	<div class="container">
+		<div class="box">
+			<h2>Basique</h2>
+			<img src="assets/images/map.png" alt="Map">
+			<p>Accès à la localisation et à la réservation d'outils, possibilité d'ajouter / supprimer les outils de la base.</p>
+            <br/>
+            <br/>
+			<a href="#">Obtenir</a>
+		</div>
 
-        <select name="ordre" id="ordre">
-            <option value="asc">Croissant</option>
-            <option value="desc">Décroissant</option>
-        </select>
-    </div>
+		<div class="box">
+			<h2>Premium</h2>
+			<img src="assets/images/analytics.png" alt="Analytics">
+			<p>
+            Accès à la localisation et à la réservation d'outils, possibilité d'ajouter / supprimer les outils de la base ainsi que d'obtenir les
+            statistiques d'utilisation des outils.
+            </p>
+            <br/>
+			<a href="#">Obtenir</a>
+		</div>
 
-    <div id="select_atelier">
-        <label for="atelier">Sélectionnez un atelier: </label>
-
-        <select name="atelier" id="atelier">
-            <option value="-1">Tout</option>
-        </select>
-    </div>
-
-    <div id="listoutil">
-        <div class="box_reservation" style="display:none;">
-            <div class="desc_outil">
-                <h3 class="name_outil">Marteau</h3>
-                <p class="utilistion_outil">Nombre d'utilisation: 322</p>
-            </div>
-        </div>
-    </div>
-
+		<div class="box">
+			<h2>Temporaire</h2>
+			<img src="assets/images/time.png" alt="Time">
+			<p>Période d'essai comprenant toutes les fonctionnalités de l'abonnement basique.</p>
+            <br/>
+            <br/>
+            <br/>
+			<a href="#">Obtenir</a>
+		</div>
+	</div>
 </div>
 
-<footer id="footer_localisation">
+<footer id="footer_abonnement">
     <div id="footer">
         <p>Copyright * - 2022</p>
     </div>
 </footer>
+
 <script src="assets/scripts/cookies.js" type="application/javascript"></script>
+<script defer>checkCookie();</script>
+
 </body>
 </html>

@@ -33,3 +33,23 @@ imgg.addEventListener("load", function () {
     fillCircle(50, 30, 10, 'red');
     fillCircle(200, 30, 10, 'red');
 });
+
+function recordPositionChange(objectId, position) {
+    fetch('api/record_position.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            object_id: objectId,
+            position: position
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}

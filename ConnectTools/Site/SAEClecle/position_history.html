@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Historique des Positions</title>
+        <link rel="stylesheet" href="assets/styles/styles.css">
+    </head>
+
+    <body>
+        <header>
+            <nav id="menu">
+                <div id="accueil">
+                    <div>
+                        <label for="check"><img src="assets/images/hamburger.png" alt="menu"></label>
+                        <input type="checkbox" id="check">
+                        <ul>
+                            <li><a href="index.html">Localisation</a></li>
+                            <li><a href="reservation.html">Réservation</a></li>
+                            <li><a href="abonnement.html">Abonnement</a></li>
+                            <li><a href="statistiques.html">Statistiques</a></li>
+                            <li><a href="SAV.html">SAV</a></li>
+                            <li><a href="position_history.html">Historique</a></li>
+                            <li><a id="deconnexion" href="connexion.html">Déconnexion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <h1>Historique des Positions</h1>
+        <input type="text" id="objectId" placeholder="Entrer l'ID de l'objet">
+        <button onclick="getPositionHistory()">Obtenir l'historique des positions</button>
+        <div id="history"></div>
+        <script src="assets/scripts/position_history.js"></script>
+
+
+        <footer id="footer_localisation">
+            <div id="footer">
+				<p>Copyright * - 2022</p>
+			</div>
+		</footer>
+        
+    </body>
+</html>

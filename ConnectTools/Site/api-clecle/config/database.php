@@ -3,7 +3,7 @@ class Database {
   private $host = "127.0.0.1";
 	private $database_name = "atelier";
 	private $username = "root";
-	private $password = "root";
+	private $password = "";
 	public $conn;
 	public function getConnection(){
 	  $this->conn = null;
