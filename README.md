@@ -6,31 +6,26 @@ Pour cette partie de la saé 4.01, vous allez devoir implémenter certaines fonc
 
 Fonctionnalité d'Historique de Position des Outils sur le Site de Localisation pour Ateliers
 
-### Présentation de la Fonctionnalité :
+## Voici comment nous avons fonctionné :
 
-Dans le cadre du développement continu d'un site web dédié à la localisation d'outils pour garagistes, une nouvelle fonctionnalité est proposée pour enrichir l'expérience utilisateur et optimiser la gestion des outils dans les ateliers : la création d'un système d'historique de position des outils. Cette fonctionnalité vise à permettre aux utilisateurs de suivre l'évolution de la localisation des outils au fil du temps, offrant ainsi une vision claire de leur mouvement et utilisation au sein de l'atelier.
-Objectifs
-- Amélioration de la Gestion des Outils : Permettre une meilleure organisation de l'atelier en traçant l'historique des déplacements des outils.
-- Optimisation du Temps : Réduire le temps passé à rechercher des outils grâce à un suivi précis de leur dernière position connue.
-- Analyse des Tendances : Identifier les outils les plus utilisés et les zones de travail les plus actives, permettant d'ajuster l'aménagement de l'atelier et la distribution des outils.
+Pour stocker l'historique des positions des objets, nous avons ajouté une nouvelle table position_history avec les colonnes suivantes :
 
-### Fonctionnement Proposé :
+id : Identifiant unique, clé primaire
+object_id : Identifiant de l'objet suivi, clé étrangère référencée à la table objects
+x : Coordonnée x de la position
+y : Coordonnée y de la position
+plan : Chemin du fichier plan de l'image
+timestamp : Date et heure de l'enregistrement
 
-La fonctionnalité d'historique de position intégrerait une API backend développée en PHP, interagissant avec la base de données existante pour enregistrer et récupérer l'historique des positions. La présentation des données s'effectuerait sur le site via JavaScript et HTML, enrichissant l'interface utilisateur avec des visualisations interactives.
-1. Collecte des Données : Chaque fois qu'un outil change de position, l'événement est enregistré via une interface (physique ou digitale), marquant l'outil, sa nouvelle position, et le timestamp de l'événement. 
-2. Stockage dans la Base de Données : Les données collectées sont envoyées à la base de données où elles sont stockées dans une nouvelle table dédiée à l'historique des positions.
-3. Récupération et Affichage des Données : Une page spécifique sur le site permet de visualiser l'historique des positions d'un outil sélectionné. Cette page utilise des appels API pour récupérer les données historiques et les affiche sous forme de timeline ou de carte de l'atelier avec des marqueurs indiquant les positions successives.
+Ensuite nous avons construit les pages :
+  - record_position.php : pour enregistrer les changements des positions des outils
+  - position_history.php : pour créer la classe qui va intéragir avec notre nouvelle table
+  - get_position_history : pour récupérer les historiques des positions
 
-### Mise en Œuvre Technique
+Nous avons aussi modifier plan.js pour y ajouter la fonction recordPositionChange.
 
-- Backend (PHP) :
-  - Créer une nouvelle table `historique_positions` dans la base de données pour enregistrer les ID des outils, les positions (peut-être sous forme de coordonnées ou de références à des zones prédéfinies de l'atelier), et les timestamps.
-  - Développer des endpoints API pour enregistrer les changements de position et récupérer l'historique pour un outil donné.
-- Frontend (JavaScript et HTML) :
-  - Concevoir une interface utilisateur intuitive pour la visualisation de l'historique. Cela peut inclure des filtres par date, outil, ou zone de l'atelier.
-  - Utiliser AJAX pour interagir avec l'API backend, récupérant et affichant les données historiques sans nécessiter de rechargement de la page.
-  - Intégrer des librairies JavaScript pour la visualisation de données (comme D3.js ou Leaflet pour les cartes) pour représenter efficacement l'historique des positions.
+Afin de pouvoir afficher les positions sur notre site nous avons créer la page position_history.html et en parallèle son script dans position_history.js
 
-### Conclusion
+## Conclusion
 
-L'ajout d'un système d'historique de position des outils apporterait une valeur ajoutée significative au site de localisation pour ateliers, en offrant aux garagistes un outil puissant pour optimiser leur organisation et leur efficacité. La mise en œuvre de cette fonctionnalité nécessitera une collaboration étroite entre les développeurs backend et frontend, ainsi qu'une conception attentive de l'interface utilisateur pour garantir une expérience utilisateur fluide et intuitive.
+Nous avons essayer de compléter notre nouvelle table manuellement mais nous n'arrivons pas a afficher le plan avec les différentes positions sur notre page html.
